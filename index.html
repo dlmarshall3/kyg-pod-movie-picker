@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Choose the Movie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1 class="poster-title" aria-label="Choose the movie">
+      <span class="t-top">CHOOSE</span>
+      <span class="t-mid">THE</span>
+      <span class="t-bottom">MOVIE</span>
+    </h1>
+    <p id="count" class="muted"></p>
+
+    <div id="reel" aria-live="polite">Spin to pick our next movie</div>
+
+    <button id="spin" class="primary">Spin</button>
+    <div id="actions" hidden>
+      <button id="accept" class="primary">Watch this next</button>
+      <button id="again">Spin again</button>
+    </div>
+    <p id="status" role="status"></p>
+
+    <details class="list">
+      <summary>Still to watch (<span id="remaining-count">0</span>)</summary>
+      <ul id="remaining"></ul>
+    </details>
+
+    <details class="list" open>
+      <summary>Already picked (<span id="watched-count">0</span>)</summary>
+      <ul id="watched"></ul>
+    </details>
+
+    <details id="settings">
+      <summary>Settings</summary>
+      <label>Repo (owner/name)
+        <input id="repo" placeholder="you/movie-spinner" autocomplete="off">
+      </label>
+      <label>GitHub token
+        <input id="token" type="password" placeholder="github_pat_…" autocomplete="off">
+      </label>
+      <p class="muted">Fine-grained token with Contents read/write on this repo only. It is stored in this browser only.</p>
+      <button id="save-settings">Save</button>
+    </details>
+  </main>
+  <script src="movies.js"></script>
+  <script src="spinner.js"></script>
+  <script src="github.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
